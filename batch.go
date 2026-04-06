@@ -3,6 +3,8 @@ package adapter
 import (
 	"context"
 	"fmt"
+
+	"github.com/gogf/gf/v2/database/gdb"
 )
 
 // AddPolicies 批量添加策略

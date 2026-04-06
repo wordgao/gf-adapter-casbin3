@@ -5,7 +5,6 @@ import (
 
 	"github.com/casbin/casbin/v3"
 	adapter "github.com/wordgao/gf-adapter-casbin3"
-	"github.com/gogf/gf/v2/database/gdb"
 	"github.com/gogf/gf/v2/frame/g"
 )
 

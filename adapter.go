@@ -8,7 +8,6 @@ import (
 	"github.com/casbin/casbin/v3/model"
 	"github.com/casbin/casbin/v3/persist"
 	"github.com/gogf/gf/v2/database/gdb"
-	"github.com/gogf/gf/v2/frame/g"
 )
 
 // 确保 Adapter 实现所有接口
@@ -78,7 +77,10 @@ func NewAdapterByDB(db gdb.DB, opts ...Option) (*Adapter, error) {
 
 // NewAdapterByGroup 通过 GoFrame 配置分组创建适配器
 func NewAdapterByGroup(group string, opts ...Option) (*Adapter, error) {
-	db := gdb.NewByGroup(group)
+	db, err := gdb.NewByGroup(group)
+	if err != nil {
+		return nil, fmt.Errorf("gf-adapter-casbin3: failed to create db from group %s: %w", group, err)
+	}
 	return NewAdapterByDB(db, opts...)
 }
 
